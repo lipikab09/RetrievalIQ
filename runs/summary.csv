@@ -1,0 +1,5 @@
+strategy,queries,avg_latency_ms,avg_chunks,avg_estimated_cost_usd,mean_recall_at_k,skip_rate
+adaptive,12,0.6325,2.1667,0.0,0.4444,0.4167
+always,12,1.1283,7.0,0.0,0.9306,0.0
+direct,12,0.025,0.0,0.0,0.0,1.0
+fixed,12,1.0492,4.0,0.0,0.8611,0.0

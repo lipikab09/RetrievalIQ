@@ -1,0 +1,74 @@
+[
+  {
+    "id": "d1",
+    "title": "Retrieval-Augmented Generation",
+    "source": "RAG primer",
+    "text": "Retrieval-augmented generation (RAG) combines a language model with an external knowledge retrieval component. The retriever selects relevant passages from a document collection and supplies them as context to the generator. RAG can improve factual grounding and make knowledge easier to update without retraining model parameters."
+  },
+  {
+    "id": "d2",
+    "title": "Dense Retrieval",
+    "source": "Search systems notes",
+    "text": "Dense retrieval encodes queries and documents into vector representations. Similarity search finds semantically related passages even when the exact keywords differ. Dense retrieval often uses neural embedding models and approximate nearest-neighbor indexes. It can add embedding inference latency and infrastructure cost."
+  },
+  {
+    "id": "d3",
+    "title": "BM25 Lexical Retrieval",
+    "source": "Search systems notes",
+    "text": "BM25 is a probabilistic lexical ranking function. It scores documents using query term frequency, inverse document frequency, and document length normalization. BM25 is fast, interpretable, and strong when query terms overlap with relevant documents, but it may miss semantic matches and synonyms."
+  },
+  {
+    "id": "d4",
+    "title": "Hybrid Retrieval and Reciprocal Rank Fusion",
+    "source": "Search systems notes",
+    "text": "Hybrid retrieval combines lexical and dense retrieval signals. Reciprocal Rank Fusion combines ranked result lists by adding reciprocal rank contributions, commonly using a smoothing constant. Hybrid search can improve recall across exact-term and semantic queries, at the cost of running multiple retrieval paths."
+  },
+  {
+    "id": "d5",
+    "title": "Cross-Encoder Reranking",
+    "source": "Reranking primer",
+    "text": "A cross-encoder reranker scores a query and candidate passage jointly. It can improve precision by reordering a shortlist from a fast first-stage retriever. Cross-encoders are more computationally expensive than bi-encoders because each query-passage pair is evaluated together, so they are typically applied only to a limited candidate set."
+  },
+  {
+    "id": "d6",
+    "title": "Adaptive Retrieval",
+    "source": "Adaptive RAG notes",
+    "text": "Adaptive retrieval selects whether to retrieve and how much context to fetch based on query characteristics and evidence needs. Simple conversational or self-contained questions may bypass retrieval. Complex comparison, multi-hop, or constraint-heavy questions may need a larger top-k. A lightweight query router can use lexical and structural features to allocate a retrieval budget."
+  },
+  {
+    "id": "d7",
+    "title": "RAG Evaluation Metrics",
+    "source": "Evaluation handbook",
+    "text": "Retrieval quality can be measured with Recall at K, Mean Reciprocal Rank, and Normalized Discounted Cumulative Gain. Answer quality can be evaluated with exact match, F1, human rubric scores, or groundedness checks. Systems should report paired comparisons on a held-out query set and avoid tuning thresholds on the test split."
+  },
+  {
+    "id": "d8",
+    "title": "Cost and Latency Measurement",
+    "source": "Systems measurement notes",
+    "text": "End-to-end latency should be measured with a monotonic high-resolution clock and reported using median and tail percentiles such as p95. Cost accounting should separate embedding, reranking, prompt, and completion tokens. Estimated token-price proxies must be labelled as estimates rather than actual provider billing."
+  },
+  {
+    "id": "d9",
+    "title": "Query Complexity Signals",
+    "source": "Router design notes",
+    "text": "Useful query-side complexity signals include query length, number of sub-questions, comparison language, reasoning operators, explicit constraints, entity count, and freshness intent. Hand-crafted features are inexpensive and interpretable, but require calibration and evaluation on representative workloads."
+  },
+  {
+    "id": "d10",
+    "title": "Retrieval Sufficiency and Escalation",
+    "source": "RAG control notes",
+    "text": "A retrieval controller can inspect the first-pass score distribution, top result score, rank gaps, or evidence coverage. If evidence appears insufficient, the system can escalate to a larger candidate budget or alternate retriever. Escalation should be bounded to prevent unbounded latency and cost growth."
+  },
+  {
+    "id": "d11",
+    "title": "TF-IDF and Sparse Search",
+    "source": "Information retrieval notes",
+    "text": "TF-IDF represents documents and queries using term-weighted sparse vectors. Cosine similarity ranks documents by vector alignment. Sparse retrieval is fast and lightweight, but depends on lexical overlap and may not understand paraphrases."
+  },
+  {
+    "id": "d12",
+    "title": "Classifier Calibration",
+    "source": "Machine learning notes",
+    "text": "A routing classifier predicts a retrieval action from query features. Confidence should be calibrated on held-out data when it drives costly decisions. Low-confidence predictions can use a conservative fallback policy. Evaluate macro F1, confusion matrices, calibration error, and performance by query category."
+  }
+]

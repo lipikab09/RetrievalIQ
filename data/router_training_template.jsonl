@@ -1,0 +1,4 @@
+{"query":"hey there","label":"DIRECT"}
+{"query":"What is BM25?","label":"LIGHT"}
+{"query":"Explain how hybrid retrieval works","label":"BALANCED"}
+{"query":"Compare BM25 and dense retrieval, then analyze cost and accuracy tradeoffs","label":"DEEP"}
